@@ -22,6 +22,27 @@
     
 */
 
+
+/*
+
+
+
+This shader was originally written in GLSL to run in the XR client ALXR with the goal of providing better masking for passthrough AR.
+Previous implementations used RGB comparison and result in transparent ghostly characters or noticeable outlines from chroma spill. 
+This shader uses fast matrix transformations to get from RGB to XYZ and then to CIE LAB 2000 color space and plugged into the delta E comparison formula which provides higher precision perceptual analysis with minimal loss of data. 
+The resulting delta E values are then compared using fast algorithms that avoid branching conditions, a necessary optimization for a pixel shader on a mobile GPU. 
+These changes enabled the most accurate and immersive XR experience at the time until Virtual Desktop released their implementation with a near identical shader and the higher performance already offered by the app. 
+I discontinued work on ALXR since then but I decided to port the shader to reshade mainly as a learning exercise, but it may have some use cases outside of XR scenarios and I plan to write more shaders that may build off of this.
+
+The major advantage of this shader is that it allows for accurate comparison against vibrant key colors without altering shading or lighting on the targets.
+
+The shader works as expected for the most part with the caveat that alpha is only altered in screenshots which was already the main use case I see for it. I added an option to desaturate in the main window which can be used for previewing. 
+Admittedly this shader isn't very useful if you have depth access but it can be used in combination with chromakey,  canvas fog, magic rectangle, or any other depth based shader adding geometry if you want to reduce the alpha of a particular color. 
+The major
+Alternatively this could be used in any game lacking depth and gives a pretty good approximation even without a backdrop
+
+*/
+
 #include "ReShade.fxh"
 #include "ReShadeUI.fxh"
 
