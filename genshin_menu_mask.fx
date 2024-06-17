@@ -6,6 +6,7 @@
 //
 // This shader is developer by lobotomy/elbadcode by which I mean it was eveloped by AlucardDH (Damien Hembert) and I cannabalized it to fit my very limited needs
 // Technically this could be done with the original shader but I wanted a separate shader to allow usage alongside the original
+// Basically I found out that while UI in genshin doesn't have consistent depth, the menus such as the map and inventory are all at 1.0 depth exactly, therefore you can apply a depth mask limiting all effects to 0 to 0.999 depth by placing the after at the bottom of your list and the before at the top. To mask ingame UI you will need my REST config/addon but this takes care of many issues quite simply. The one small caveat is that the sky is also at 1.0 depth. You may wish to place any simple LUT or color palette effects below this one if you wish to recolor the sky without making the menu unusable. If you really wanted to its also possible to set any effects below this mask to be toggleable by keybind. I think by default reshade only supports one keybind per action but if I find that I need to rely on this method I will add the feature so inventory, map, and any other such pages with a direct keybind will disable the effects automatically. For now this is good enough and I'll likely either bake it into my REST or reshade build or provide a script to autoadd this to presets
 //
 // Get more here : https://github.com/AlucardDH/dh-reshade-shaders
 //
