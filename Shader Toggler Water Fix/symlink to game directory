@@ -1,0 +1,10 @@
+@echo off
+setlocal enabledelayedexpansion
+set "psCommand="(new-object -COM 'Shell.Application')^
+.BrowseForFolder(0,'Please choose game folder.',0,0).self.path""
+for /f "usebackq delims=" %%I in (`powershell %psCommand%`) do set "folder=%%I"
+Call :LinkIni %folder%
+
+:LinkIni
+mklink %1\shadertoggler.ini ShaderToggler.ini
+ECHO This should have worked, if it didn't generate a file you must have run it from the wrong directory 
