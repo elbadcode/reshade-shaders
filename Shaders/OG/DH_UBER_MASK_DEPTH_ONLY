@@ -4,7 +4,9 @@
 //
 // This shader is free, if you paid for it, you have been ripped and should ask for a refund.
 //
-// This shader is developed by AlucardDH (Damien Hembert)
+// This shader was developed by AlucardDH (Damien Hembert). Then lobotomy/elbadcode took it and deleted 1/3 of the code
+//
+// This shader is great as a fast depth mask and can work as multiple sets to define depth based layer groups e.g. apply an effect only to the sky 
 //
 // Get more here : https://github.com/AlucardDH/dh-reshade-shaders
 //
