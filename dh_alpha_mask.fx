@@ -4,7 +4,9 @@
 //
 // This shader is free, if you paid for it, you have been ripped and should ask for a refund.
 //
-// This shader is developed by AlucardDH (Damien Hembert)
+// This shader was developed by AlucardDH (Damien Hembert) and forked by lobotomy/ebadcode
+//
+// I forget exactly what I wanted to do with this but currently it makes anything in between it transparent and depth masked. The degree of transparency is meant to be adjustable but iirc that may not be working as expected. depth works normally and this looks good in some cases
 //
 // Get more here : https://github.com/AlucardDH/dh-reshade-shaders
 //
